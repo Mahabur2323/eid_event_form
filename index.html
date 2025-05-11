@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>আইহাই উচ্চ বিদ্যালয় - রেজিস্ট্রেশন</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://i.postimg.cc/fRNqtVHH/Capture.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 🌟 হেডার স্টাইল */
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 25px 20px;
+      background-color: rgba(10, 25, 47, 0.9);
+      border-bottom: 4px solid #ffffffaa;
+      border-radius: 0 0 8px 8px;
+    }
+
+    header img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #00d4ff;
+    }
+
+    header h1 {
+      font-size: 32px;
+      color: #ffffff;
+      text-shadow: 1px 1px 5px #00d4ff;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    form {
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.95);
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input[type="text"],
+    select,
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    .admin-reset {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .admin-reset button {
+      background-color: #dc3545;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .admin-reset button:hover {
+      background-color: #c82333;
+    }
+
+    .thank-you {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 30px;
+      text-align: center;
+      background-color: rgba(0, 128, 0, 0.85);
+      color: white;
+      border-radius: 12px;
+      font-size: 20px;
+      display: none;
+    }
+
+    .static-light-text {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 30px auto 60px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      animation: blinkColors 1s infinite;
+    }
+
+    @keyframes blinkColors {
+      0% {
+        color: #ff0000;
+      }
+
+      20% {
+        color: #00ff00;
+      }
+
+      40% {
+        color: #0000ff;
+      }
+
+      60% {
+        color: #ffff00;
+      }
+
+      80% {
+        color: #ff00ff;
+      }
+
+      100% {
+        color: #00ffff;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ হেডার শুরু -->
+  <header>
+    <img src="https://i.postimg.cc/CM49GHq3/484857702-2892954940878501-1043327302025993468-n.jpg" alt="School Logo">
+    <h1>রেজিস্ট্রেশন ফর্ম</h1>
+  </header>
+
+  <form id="registration-form" action="https://sheetdb.io/api/v1/7etk4by5v2c7d" method="post">
+    <label for="name">ছাত্র/ছাত্রীর নাম:</label>
+    <input type="text" name="data[NAME]" id="name" required />
+
+    <label for="address">স্থায়ী ঠিকানা:</label>
+    <input type="text" name="data[ADDRESS]" id="address" required />
+
+    <label for="ssc_year">এসএসসি পাশের সাল:</label>
+    <select name="data[SSC_YEAR]" id="ssc_year" required>
+      <option value="">-- নির্বাচন করুন --</option>
+      <script>
+        for (let year = 1995; year <= 2025; year++) {
+          document.write(`<option value="${year}">${year}</option>`);
+        }
+      </script>
+    </select>
+
+    <label for="participants">অংশগ্রহণকারীর সংখ্যা:</label>
+    <select name="data[PARTICIPANTS]" id="participants" required>
+      <option value="">-- নির্বাচন করুন --</option>
+      <script>
+        for (let i = 1; i <= 10; i++) {
+          document.write(`<option value="${i}">${i}</option>`);
+        }
+      </script>
+    </select>
+
+    <label for="phone">মোবাইল নাম্বার:</label>
+    <input type="tel" name="data[PHONE]" id="phone" maxlength="11" pattern="[0-9]{11}" required />
+
+    <input type="submit" value="রেজিস্ট্রেশন করুন" />
+  </form>
+
+  <!-- Thank You Message -->
+  <div id="thank-you" class="thank-you">
+    🎉 ধন্যবাদ রেজিস্ট্রেশন করার জন্য!
+  </div>
+
+  <!-- Static Blinking School Name -->
+  <div class="static-light-text">আইহাই উচ্চ বিদ্যালয়</div>
+
+  <!-- Admin Reset Button -->
+  <div class="admin-reset">
+    <button onclick="showResetPrompt()">রেজিস্ট্রেশন পুনরায় চালু করুন (শুধু অ্যাডমিনের জন্য)</button>
+  </div>
+
+  <script>
+    const form = document.getElementById("registration-form");
+    const thankYouMessage = document.getElementById("thank-you");
+
+    if (localStorage.getItem("formSubmitted")) {
+      form.style.display = "none";
+      thankYouMessage.style.display = "block";
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const phone = document.getElementById("phone").value;
+      if (phone.length !== 11 || !/^\d+$/.test(phone)) {
+        alert("সঠিক ১১ সংখ্যার মোবাইল নাম্বার দিন!");
+        return;
+      }
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          localStorage.setItem("formSubmitted", "true");
+          form.reset();
+          form.style.display = "none";
+          thankYouMessage.style.display = "block";
+        })
+        .catch((error) => {
+          alert("সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।");
+          console.error(error);
+        });
+    });
+
+    function showResetPrompt() {
+      const adminPassword = "eid2025";
+      const input = prompt("গোপন পাসওয়ার্ড লিখুন:");
+
+      if (input === adminPassword) {
+        localStorage.removeItem("formSubmitted");
+        alert("রেজিস্ট্রেশন পুনরায় চালু হয়েছে ✅");
+        location.reload();
+      } else {
+        alert("ভুল পাসওয়ার্ড! 🚫");
+      }
+    }
+  </script>
+</body>
+
+</html>
